@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Cart | Wood Vida</title>
+
+    <meta
+        name="description"
+        content="Review your selected Wood Vida pieces."
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =====================================================
+           WOOD VIDA CART PAGE
+        ===================================================== */
+
+        .cart-page {
+            min-height: 100vh;
+            background: var(--cream);
+            color: var(--green-dark);
+        }
+
+        /* TOP BAR */
+
+        .cart-topbar {
+            height: 82px;
+            padding: 0 5%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid var(--border);
+            background: var(--cream-light);
+        }
+
+        .cart-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--green-dark);
+            text-decoration: none;
+
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .cart-back svg {
+            width: 19px;
+            height: 19px;
+
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.6;
+        }
+
+        .cart-brand {
+            text-align: center;
+        }
+
+        .cart-brand-name {
+            font-family: var(--serif);
+            font-size: 25px;
+            letter-spacing: 2px;
+        }
+
+        .cart-brand-tagline {
+            margin-top: 2px;
+
+            font-size: 7px;
+            letter-spacing: 2px;
+            color: var(--wood);
+        }
+
+        .cart-count-label {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+
+        /* HEADER */
+
+        .cart-heading {
+            max-width: 1400px;
+            margin: auto;
+
+            padding: 95px 5% 55px;
+        }
+
+        .cart-eyebrow {
+            margin-bottom: 18px;
+
+            color: var(--wood);
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .cart-heading h1 {
+            margin: 0;
+
+            font-family: var(--serif);
+            font-size: clamp(55px, 7vw, 95px);
+            line-height: .9;
+            font-weight: 400;
+            letter-spacing: -2px;
+        }
+
+        .cart-heading h1 em {
+            color: var(--wood);
+            font-style: italic;
+        }
+
+
+        /* MAIN */
+
+        .cart-layout {
+            max-width: 1400px;
+            margin: auto;
+
+            padding: 0 5% 120px;
+
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 390px;
+
+            gap: 70px;
+            align-items: start;
+        }
+
+
+        /* CART ITEMS */
+
+        .cart-items {
+            border-top: 1px solid var(--border);
+        }
+
+        .cart-item {
+            padding: 28px 0;
+
+            display: grid;
+            grid-template-columns: 145px minmax(0, 1fr) auto;
+
+            gap: 25px;
+            align-items: center;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cart-item-image {
+            width: 145px;
+            height: 145px;
+
+            overflow: hidden;
+
+            background: var(--cream-dark);
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        .cart-item-category {
+            margin-bottom: 8px;
+
+            color: var(--wood);
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+        }
+
+        .cart-item-name {
+            margin: 0 0 10px;
+
+            font-family: var(--serif);
+            font-size: 29px;
+            font-weight: 400;
+        }
+
+        .cart-item-price {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .cart-item-actions {
+            margin-top: 20px;
+
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+
+            border: 1px solid var(--border);
+        }
+
+        .quantity-control button {
+            width: 34px;
+            height: 34px;
+
+            border: 0;
+            background: transparent;
+
+            color: var(--green-dark);
+
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .quantity-control span {
+            min-width: 30px;
+
+            text-align: center;
+
+            font-size: 12px;
+        }
+
+        .remove-item {
+            border: 0;
+            background: none;
+
+            color: var(--muted);
+
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            cursor: pointer;
+        }
+
+        .remove-item:hover {
+            color: #a33b32;
+        }
+
+        .cart-item-total {
+            font-family: var(--serif);
+            font-size: 22px;
+            white-space: nowrap;
+        }
+
+
+        /* EMPTY CART */
+
+        .empty-cart {
+            padding: 100px 20px;
+
+            text-align: center;
+
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .empty-cart h2 {
+            margin: 0 0 15px;
+
+            font-family: var(--serif);
+            font-size: 45px;
+            font-weight: 400;
+        }
+
+        .empty-cart p {
+            margin-bottom: 30px;
+
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+
+        /* SUMMARY */
+
+        .cart-summary {
+            position: sticky;
+            top: 25px;
+
+            padding: 32px;
+
+            background: var(--green-dark);
+            color: var(--cream-light);
+        }
+
+        .summary-eyebrow {
+            margin-bottom: 25px;
+
+            color: var(--gold);
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .summary-row {
+            padding: 15px 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid rgba(250,247,240,.12);
+
+            font-size: 13px;
+        }
+
+        .summary-row.total {
+            padding: 24px 0;
+
+            border-bottom: 0;
+
+            font-family: var(--serif);
+            font-size: 28px;
+        }
+
+        .summary-note {
+            margin: 0 0 25px;
+
+            color: rgba(250,247,240,.65);
+
+            font-size: 11px;
+            line-height: 1.7;
+        }
+
+        .whatsapp-checkout {
+            width: 100%;
+            min-height: 52px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--gold);
+
+            background: var(--gold);
+            color: var(--green-dark);
+
+            text-decoration: none;
+
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            transition: .3s ease;
+        }
+
+        .whatsapp-checkout:hover {
+            background: var(--cream-light);
+            transform: translateY(-2px);
+        }
+
+        .continue-shopping {
+            display: block;
+
+            margin-top: 20px;
+
+            text-align: center;
+
+            color: var(--cream-light);
+
+            font-size: 10px;
+            letter-spacing: 1.3px;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            .cart-layout {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .cart-summary {
+                position: static;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .cart-topbar {
+                height: 70px;
+                padding: 0 5%;
+            }
+
+            .cart-brand-name {
+                font-size: 19px;
+            }
+
+            .cart-count-label {
+                display: none;
+            }
+
+            .cart-heading {
+                padding: 70px 6% 40px;
+            }
+
+            .cart-heading h1 {
+                font-size: 58px;
+            }
+
+            .cart-layout {
+                padding: 0 6% 80px;
+            }
+
+            .cart-item {
+                grid-template-columns: 90px 1fr;
+                gap: 18px;
+            }
+
+            .cart-item-image {
+                width: 90px;
+                height: 110px;
+            }
+
+            .cart-item-total {
+                grid-column: 2;
+                font-size: 20px;
+            }
+
+            .cart-item-name {
+                font-size: 23px;
+            }
+
+            .cart-summary {
+                padding: 25px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="mobile.css">
+</head>
+
+
+<body>
+
+<div class="cart-page">
+
+
+    <!-- =================================================
+         CART TOP BAR
+    ================================================== -->
+
+    <header class="cart-topbar">
+
+        <a
+            href="javascript:history.back()"
+            class="cart-back"
+        >
+
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5"></path>
+                <path d="M11 6l-6 6 6 6"></path>
+            </svg>
+
+            Back
+
+        </a>
+
+
+        <a
+            href="index.html"
+            class="cart-brand"
+            style="text-decoration:none;color:inherit;"
+        >
+
+            <div class="cart-brand-name">
+                WOOD VIDA
+            </div>
+
+            <div class="cart-brand-tagline">
+                NATURE'S ART
+            </div>
+
+        </a>
+
+
+        <div class="cart-count-label">
+            Your Cart
+        </div>
+
+    </header>
+
+
+    <!-- =================================================
+         HEADING
+    ================================================== -->
+
+    <section class="cart-heading">
+
+        <div class="cart-eyebrow">
+            YOUR SELECTION
+        </div>
+
+        <h1>
+            Pieces you've
+            <em>chosen.</em>
+        </h1>
+
+    </section>
+
+
+    <!-- =================================================
+         CART CONTENT
+    ================================================== -->
+
+    <main class="cart-layout">
+
+
+        <!-- ITEMS -->
+
+        <section>
+
+            <div id="cart-items" class="cart-items"></div>
+
+
+            <!-- EMPTY CART -->
+
+            <div
+                id="empty-cart"
+                class="empty-cart"
+                style="display:none;"
+            >
+
+                <h2>
+                    Your cart is quiet.
+                </h2>
+
+                <p>
+                    Discover a piece that belongs in your space.
+                </p>
+
+                <a
+                    href="collection.html"
+                    class="button"
+                >
+                    Explore Collection
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUMMARY -->
+
+        <aside class="cart-summary">
+
+            <div class="summary-eyebrow">
+                ORDER SUMMARY
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Items
+                </span>
+
+                <span id="summary-items">
+                    0
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span id="summary-subtotal">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Delivery
+                </span>
+
+                <span>
+                    Discuss
+                </span>
+
+            </div>
+
+
+            <div class="summary-row total">
+
+                <span>
+                    Total
+                </span>
+
+                <span id="summary-total">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <p class="summary-note">
+                Wood Vida currently handles purchases and delivery
+                details through direct inquiry.
+            </p>
+
+
+            <a
+                href="#"
+                id="whatsapp-checkout"
+                class="whatsapp-checkout"
+                target="_blank"
+                rel="noopener"
+            >
+                Inquire on WhatsApp
+            </a>
+
+
+            <a
+                href="collection.html"
+                class="continue-shopping"
+            >
+                Continue Shopping
+            </a>
+
+        </aside>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================================
+     cart.html
+     Delete EVERYTHING from the last  <script>  (the one that starts with
+     "WOOD VIDA CART SYSTEM")  down to  </html>  and paste this whole file.
+====================================================================== -->
+
+<script>
+
+    /* =====================================================
+       WOOD VIDA CART SYSTEM
+       - every piece is "one of one", so no quantity buttons
+       - pieces without a price show "Price on request"
+    ===================================================== */
+
+    const CART_KEY = "woodVidaCart";
+
+    const WHATSAPP_NUMBER = "917309990055";
+
+    const CATEGORY_LABELS = {
+        "lamps": "Side lamp",
+        "wall-art": "Wall art",
+        "tables": "Table"
+    };
+
+    const cartItemsContainer =
+        document.getElementById("cart-items");
+
+    const emptyCart =
+        document.getElementById("empty-cart");
+
+    const summaryItems =
+        document.getElementById("summary-items");
+
+    const summarySubtotal =
+        document.getElementById("summary-subtotal");
+
+    const summaryTotal =
+        document.getElementById("summary-total");
+
+    const whatsappCheckout =
+        document.getElementById("whatsapp-checkout");
+
+
+    function escapeHTML(value) {
+
+        return String(value == null ? "" : value).replace(
+            /[&<>"']/g,
+            function (c) {
+                return {
+                    "&": "&amp;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    '"': "&quot;",
+                    "'": "&#39;"
+                }[c];
+            }
+        );
+
+    }
+
+
+    function getCart() {
+
+        try {
+
+            const cart = JSON.parse(localStorage.getItem(CART_KEY));
+
+            return Array.isArray(cart) ? cart : [];
+
+        } catch (error) {
+
+            return [];
+
+        }
+
+    }
+
+
+    function saveCart(cart) {
+
+        localStorage.setItem(
+            CART_KEY,
+            JSON.stringify(cart)
+        );
+
+    }
+
+
+    function formatPrice(price) {
+
+        return "₹" + Number(price || 0).toLocaleString("en-IN");
+
+    }
+
+
+    function categoryLabel(item) {
+
+        return CATEGORY_LABELS[item.category] || item.category || "WOOD VIDA";
+
+    }
+
+
+    function renderCart() {
+
+        const cart = getCart();
+
+        cartItemsContainer.innerHTML = "";
+
+
+        if (!cart.length) {
+
+            emptyCart.style.display = "block";
+
+            summaryItems.textContent = "0";
+            summarySubtotal.textContent = "₹0";
+            summaryTotal.textContent = "₹0";
+
+            whatsappCheckout.href = "#";
+            whatsappCheckout.style.pointerEvents = "none";
+            whatsappCheckout.style.opacity = ".45";
+
+            return;
+
+        }
+
+
+        emptyCart.style.display = "none";
+
+        whatsappCheckout.style.pointerEvents = "auto";
+        whatsappCheckout.style.opacity = "1";
+
+
+        let subtotal = 0;
+        let pricedCount = 0;
+        let requestCount = 0;
+
+
+        cart.forEach(function (item, index) {
+
+            const price = Number(item.price || 0);
+
+            if (price > 0) {
+
+                subtotal += price;
+                pricedCount++;
+
+            } else {
+
+                requestCount++;
+
+            }
+
+
+            const productLink =
+                item.id != null
+                    ? "product.html?id=" + encodeURIComponent(item.id)
+                    : "collection.html";
+
+
+            const article = document.createElement("article");
+
+            article.className = "cart-item";
+
+
+            article.innerHTML = `
+
+                <div class="cart-item-image">
+                    ${
+                        item.image
+                            ? `<a href="${escapeHTML(productLink)}">
+                                   <img
+                                       src="${escapeHTML(item.image)}"
+                                       alt="${escapeHTML(item.name || "Wood Vida piece")}"
+                                   >
+                               </a>`
+                            : ""
+                    }
+                </div>
+
+
+                <div>
+
+                    <div class="cart-item-category">
+                        ${escapeHTML(categoryLabel(item))} · One of one
+                    </div>
+
+                    <h2 class="cart-item-name">
+                        <a href="${escapeHTML(productLink)}">
+                            ${escapeHTML(item.name || "Wood Vida Piece")}
+                        </a>
+                    </h2>
+
+                    <div class="cart-item-price">
+                        ${price > 0 ? formatPrice(price) : "Price on request"}
+                    </div>
+
+
+                    <div class="cart-item-actions">
+
+                        <button
+                            type="button"
+                            class="remove-item"
+                            data-index="${index}"
+                        >
+                            Remove
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="cart-item-total">
+                    ${price > 0 ? formatPrice(price) : "On request"}
+                </div>
+
+            `;
+
+
+            cartItemsContainer.appendChild(article);
+
+        });
+
+
+        let totalText;
+
+        if (requestCount === 0) {
+
+            totalText = formatPrice(subtotal);
+
+        } else if (pricedCount === 0) {
+
+            totalText = "On request";
+
+        } else {
+
+            totalText = formatPrice(subtotal) + " + on request";
+
+        }
+
+
+        summaryItems.textContent = cart.length;
+
+        summarySubtotal.textContent = totalText;
+
+        summaryTotal.textContent = totalText;
+
+
+        updateWhatsApp(cart, totalText);
+
+    }
+
+
+    cartItemsContainer.addEventListener("click", function (event) {
+
+        const button = event.target.closest(".remove-item");
+
+        if (!button) return;
+
+        removeItem(Number(button.dataset.index));
+
+    });
+
+
+    function removeItem(index) {
+
+        const cart = getCart();
+
+        if (index < 0 || index >= cart.length) return;
+
+        cart.splice(index, 1);
+
+        saveCart(cart);
+
+        renderCart();
+
+    }
+
+
+    function updateWhatsApp(cart, totalText) {
+
+        let message =
+            "Hello WOOD VIDA, I would like to enquire about these pieces:\n\n";
+
+
+        cart.forEach(function (item) {
+
+            const price = Number(item.price || 0);
+
+            message +=
+                "• " +
+                (item.name || "Wood Vida Piece") +
+                " (" + categoryLabel(item) + ")" +
+                " — " +
+                (price > 0 ? formatPrice(price) : "Price on request") +
+                "\n";
+
+        });
+
+
+        message += "\nTotal: " + totalText;
+
+
+        whatsappCheckout.href =
+            "https://wa.me/" +
+            WHATSAPP_NUMBER +
+            "?text=" +
+            encodeURIComponent(message);
+
+    }
+
+
+    renderCart();
+
+</script>
+
+</body>
+</html>

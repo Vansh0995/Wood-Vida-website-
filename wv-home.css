@@ -1,0 +1,662 @@
+/* ============================================================
+   WOOD VIDA — WV-HOME.CSS   ("Light On" home, all screens)
+
+   Link it in index.html AFTER style.css and mobile.css:
+   <link rel="stylesheet" href="wv-home.css">
+
+   Three layouts, one design:
+   - PHONE   (up to 700px)          lamp card on top, text below
+   - TABLET  (701px+ portrait)      same, bigger
+   - LAPTOP  (wide screens)         lamp card on one side, text on the other,
+                                    sides swap from scene to scene
+   ============================================================ */
+
+/* the old home sections + old video layer are replaced by this story */
+main.hm-main { display: none; }
+.wv-cinematic { display: none !important; }
+body.wv-cinematic-on { background: #0d0906; }
+
+
+/* ============================================================
+   1. TRACK + PINNED SCREEN
+   ============================================================ */
+.mh {
+  display: block;
+  position: relative;
+  --nav: 82px;            /* height of the top navbar */
+  --vh: 100vh;
+  --gold: #c5a978;
+  margin-top: calc(var(--nav) * -1);   /* first scene starts behind the navbar */
+  height: calc(var(--mh-total, 9) * var(--vh));
+  background: #0d0906;
+}
+@supports (height: 100lvh) {
+  .mh { --vh: 100lvh; }
+}
+
+.mh-stage {
+  position: sticky;
+  top: 0;
+  height: var(--vh);
+  overflow: hidden;
+  background: #0d0906;
+}
+
+/* fine film grain over everything: makes the photos feel printed */
+.mh-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: .055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+
+/* ============================================================
+   2. SCENES  (default layout = PHONE)
+   ============================================================ */
+.mh-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  visibility: hidden;
+  background: var(--bg, #0d0906);
+  --fg: #f5f0e7;
+  --em: #c5a978;
+
+  /* layout numbers every part of a scene shares */
+  --top: calc(var(--nav) + 28px);   /* where the lamp card starts */
+  --copy: 272px;                    /* free space under the card for text */
+  --cardx: 50%;                     /* horizontal centre of the card */
+  --cy: 38%;                        /* where the light spreads from */
+  --cw: min(calc(100vw - 32px), calc((var(--vh) - var(--top) - var(--copy)) * .8));
+}
+.mh-scene.is-on { visibility: visible; }
+.mh:not(.mh-ready) .mh-scene:first-child { visibility: visible; }
+
+/* every scene arrives as light spreading out from the lamp */
+.mh-scene[data-fx="circle"] {
+  clip-path: circle(calc(var(--in, 1) * 112%) at var(--cardx) var(--cy));
+}
+
+/* ---------- the lamp card (always 4:5) ---------- */
+.mh-card {
+  position: absolute;
+  left: var(--cardx);
+  top: var(--top);
+  width: var(--cw);
+  aspect-ratio: 4 / 5;
+  container-type: inline-size;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #000;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .55);
+  transform:
+    translate3d(-50%, 0, 0)
+    perspective(1400px)
+    rotateY(calc(var(--mx, 0) * 3deg))
+    rotateX(calc(var(--my, 0) * -2.5deg))
+    scale(var(--cs, 1));
+}
+.mh-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(calc(1.02 + var(--q, 0) * .07));
+}
+/* photos that carry labels stay still so labels stay on target */
+.mh-scene[data-kind="anatomy"] .mh-card img,
+.mh-scene[data-kind="dims"] .mh-card img { transform: none; }
+.mh-scene[data-light] .mh-card { box-shadow: 0 24px 60px rgba(23, 41, 30, .2); }
+
+/* warm light that spills out of the card onto the page */
+.mh-bloom {
+  position: absolute;
+  inset: -10% 0 0;
+  pointer-events: none;
+  background: radial-gradient(
+    78% 42% at var(--cardx) var(--cy),
+    rgba(255, 176, 80, .55),
+    rgba(255, 140, 50, .14) 55%,
+    transparent 78%
+  );
+  opacity: var(--lit, 0);
+}
+.mh-bloom-soft { opacity: .5; }
+
+/* ---------- scene 1: lamp starts dim, scroll switches it on ---------- */
+.mh-scene[data-kind="lamp"] .mh-card { --cs: calc(.95 + var(--lit, 0) * .05); }
+.mh-veil {
+  position: absolute;
+  inset: 0;
+  background: #050302;
+  opacity: calc(.94 * (1 - var(--lit, 1)));
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   3. TEXT
+   ============================================================ */
+.mh-copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 22px calc(92px + env(safe-area-inset-bottom, 0px));
+  color: var(--fg);
+  opacity: var(--io, 1);
+  transform: translate3d(0, calc((1 - var(--io, 1)) * 34px), 0);
+  will-change: opacity, transform;
+}
+.mh .mh-eyebrow {
+  margin-bottom: 12px;
+  color: var(--gold);
+  font: 700 10px/1.4 Arial, Helvetica, sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.mh .mh-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(30px, 9vw, 40px);
+  line-height: 1;
+  letter-spacing: -.015em;
+  color: var(--fg);
+  overflow-wrap: break-word;
+}
+.mh .mh-title em { color: var(--em); font-style: italic; }
+.mh .mh-sub {
+  max-width: 34ch;
+  margin-top: 10px;
+  font: 14.5px/1.6 Arial, Helvetica, sans-serif;
+  color: var(--fg);
+  opacity: .85;
+}
+
+/* first scene: text rises once when the page opens */
+.mh-scene[data-first] .mh-copy > * {
+  animation: mh-rise .9s cubic-bezier(.2, .7, .2, 1) backwards;
+}
+.mh-scene[data-first] .mh-copy > :nth-child(2) { animation-delay: .12s; }
+.mh-scene[data-first] .mh-copy > :nth-child(3) { animation-delay: .26s; }
+.mh-scene[data-first] .mh-copy > :nth-child(4) { animation-delay: .4s; }
+@keyframes mh-rise {
+  from { opacity: 0; transform: translate3d(0, 26px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+
+.mh-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  color: var(--gold);
+  font: 700 10px/1 Arial, Helvetica, sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: clamp(0, calc(1 - var(--q, 0) * 2.2), 1);
+}
+.mh-hint i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffb04d;
+  box-shadow: 0 0 12px 3px rgba(255, 160, 60, .7);
+  animation: mh-pulse 1.6s ease-in-out infinite;
+}
+@keyframes mh-pulse {
+  0%, 100% { transform: scale(.7); opacity: .6; }
+  50%      { transform: scale(1.25); opacity: 1; }
+}
+
+
+/* ============================================================
+   4. SCENE DETAILS
+   ============================================================ */
+
+/* ---------- floating embers (forest + workshop) ---------- */
+.mh-flies { position: absolute; inset: 0; pointer-events: none; }
+.mh-flies i {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s, 5px);
+  height: var(--s, 5px);
+  border-radius: 50%;
+  background: #ffd79a;
+  box-shadow: 0 0 10px 3px rgba(255, 190, 100, .7);
+  opacity: 0;
+  animation: mh-fly var(--t, 7s) ease-in-out var(--d, 0s) infinite;
+}
+.mh-scene:not(.is-on) .mh-flies i { animation-play-state: paused; }
+@keyframes mh-fly {
+  0%   { opacity: 0; transform: translate3d(0, 0, 0); }
+  20%  { opacity: .9; }
+  60%  { opacity: .6; }
+  100% { opacity: 0; transform: translate3d(var(--dx, 14px), -80px, 0); }
+}
+
+/* ---------- 3 · workshop polaroid ---------- */
+.mh-scene[data-kind="hand"] {
+  background-image: repeating-linear-gradient(95deg, rgba(255, 255, 255, .018) 0 2px, transparent 2px 10px);
+}
+.mh-polaroid {
+  position: absolute;
+  left: var(--cardx);
+  top: calc(var(--top) + 6px);
+  width: min(56vw, 236px, calc(var(--cw) * .66));
+  margin: 0;
+  padding: 10px 10px 36px;
+  background: #f2ede3;
+  border-radius: 6px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .6);
+  opacity: var(--pe, 0);
+  transform:
+    translate3d(-50%, calc((1 - var(--pe, 0)) * 140px), 0)
+    rotate(calc(-10deg + var(--pe, 0) * 7deg));
+  will-change: transform, opacity;
+}
+.mh-polaroid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: 50% 62%;
+  border-radius: 2px;
+}
+.mh-polaroid figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  text-align: center;
+  font: italic 12px/1 Georgia, serif;
+  color: #5a4a36;
+}
+.mh-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 70px;
+  height: 22px;
+  margin-left: -35px;
+  background: rgba(197, 169, 120, .6);
+  transform: rotate(3deg);
+}
+
+/* ---------- 4 · detail callouts ---------- */
+.mh-spots { position: absolute; inset: 0; pointer-events: none; }
+.mh-spot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--y);
+  height: 0;
+  opacity: var(--a, 0);
+}
+.mh-dot {
+  position: absolute;
+  left: var(--x);
+  top: 0;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: #c5a978;
+  border: 2px solid #17291e;
+  transform: scale(calc(.4 + var(--a, 0) * .6));
+}
+.mh-dot::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(23, 41, 30, .55);
+  animation: mh-ring 1.8s ease-out infinite;
+}
+@keyframes mh-ring {
+  0%   { transform: scale(.5); opacity: .9; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+.mh-line {
+  position: absolute;
+  top: 0;
+  height: 1px;
+  background: #17291e;
+  opacity: .55;
+  transform: scaleX(var(--a, 0));
+}
+/* px first, then cqw (scales with the card) for browsers that know it */
+.mh-spot[data-side="r"] .mh-line { left: var(--x); right: 100px; right: 28cqw; transform-origin: 0 50%; }
+.mh-spot[data-side="l"] .mh-line {
+  left: 100px;
+  left: 28cqw;
+  width: calc(var(--x) - 100px);
+  width: calc(var(--x) - 28cqw);
+  transform-origin: 100% 50%;
+}
+.mh-lbl {
+  position: absolute;
+  top: 0;
+  width: 94px;
+  width: 26cqw;
+  padding: 7px 9px;
+  border-radius: 10px;
+  background: rgba(250, 247, 240, .95);
+  box-shadow: 0 6px 18px rgba(23, 41, 30, .16);
+  color: #17291e;
+  transform: translate3d(0, -50%, 0);
+}
+.mh-spot[data-side="r"] .mh-lbl { right: 6px; }
+.mh-spot[data-side="l"] .mh-lbl { left: 6px; }
+.mh-lbl strong {
+  display: block;
+  font: 700 10.5px/1.25 Arial, Helvetica, sans-serif;
+  font-size: clamp(10px, 3cqw, 15px);
+}
+.mh-lbl small {
+  display: block;
+  margin-top: 2px;
+  font: 9.5px/1.3 Arial, Helvetica, sans-serif;
+  font-size: clamp(9px, 2.6cqw, 13px);
+  color: #6b665c;
+}
+
+/* ---------- 5 · size lines ---------- */
+.mh-dims { position: absolute; inset: 0; pointer-events: none; }
+.mh-dim {
+  position: absolute;
+  display: block;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, .65));
+}
+.mh-dim.v {
+  left: var(--x);
+  top: var(--y1);
+  height: calc(var(--y2) - var(--y1));
+  border-left: 1.5px solid #fff;
+  transform-origin: 50% 0;
+  transform: scaleY(var(--d, 0));
+}
+.mh-dim.v::before,
+.mh-dim.v::after {
+  content: "";
+  position: absolute;
+  left: -7px;
+  width: 13px;
+  height: 1.5px;
+  background: #fff;
+}
+.mh-dim.v::before { top: 0; }
+.mh-dim.v::after { bottom: 0; }
+.mh-dim.h {
+  left: var(--x1);
+  width: calc(var(--x2) - var(--x1));
+  top: var(--y);
+  border-top: 1.5px solid #fff;
+  transform-origin: 0 50%;
+  transform: scaleX(var(--d, 0));
+}
+.mh-dim.h::before,
+.mh-dim.h::after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  width: 1.5px;
+  height: 13px;
+  background: #fff;
+}
+.mh-dim.h::before { left: 0; }
+.mh-dim.h::after { right: 0; }
+
+.mh-tag {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(13, 9, 6, .8);
+  color: #f5f0e7;
+  font: 700 10px/1 Arial, Helvetica, sans-serif;
+  font-size: clamp(10px, 2.8cqw, 14px);
+  letter-spacing: 1px;
+  white-space: nowrap;
+  opacity: var(--d, 0);
+}
+.mh-tag-v  { transform: translate(-50%, -50%) rotate(-90deg); }
+.mh-tag-up { transform: translate(-50%, calc(-100% - 8px)); }
+
+/* ---------- 6 · switch + links ---------- */
+.mh-scene[data-kind="final"] { --copy: 352px; }
+.mh-veil-toggle { opacity: 0; transition: opacity .55s ease; }
+.mh-bloom-toggle { opacity: 1; transition: opacity .55s ease; }
+.lamp-off .mh-veil-toggle { opacity: .9; }
+.lamp-off .mh-bloom-toggle { opacity: 0; }
+
+.mh-switch,
+.mh-row,
+.mh-link { pointer-events: none; }
+.mh-scene.copy-on .mh-switch,
+.mh-scene.copy-on .mh-row,
+.mh-scene.copy-on .mh-link { pointer-events: auto; }
+
+.mh-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0 12px;
+  padding: 6px 16px 6px 6px;
+  border: 1px solid rgba(245, 240, 231, .3);
+  border-radius: 999px;
+  background: rgba(245, 240, 231, .08);
+  color: #f5f0e7;
+  font: 700 11px/1 Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.mh-switch i {
+  position: relative;
+  width: 46px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--gold);
+  transition: background .3s ease;
+}
+.mh-switch i::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 23px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #17291e;
+  transition: left .3s ease, background .3s ease;
+}
+.lamp-off .mh-switch i { background: rgba(245, 240, 231, .25); }
+.lamp-off .mh-switch i::after { left: 3px; background: #f5f0e7; }
+
+.mh-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mh-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  border-radius: 999px;
+  background: #f5f0e7;
+  color: #17291e;
+  font: 700 11px/1 Arial, Helvetica, sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: background .3s ease;
+}
+.mh-row .whatsapp-enquiry-button {
+  width: 100%;
+  min-height: 50px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+.mh-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--gold);
+  font: 700 12px/1.5 Arial, Helvetica, sans-serif;
+  letter-spacing: .5px;
+}
+
+/* ---------- progress strip ---------- */
+.mh-hud {
+  position: absolute;
+  z-index: 5;
+  left: 22px;
+  right: 22px;
+  top: calc(var(--nav) + 6px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #f5f0e7;
+  font: 10px/1 Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  pointer-events: none;
+  transition: color .3s ease;
+}
+.mh-num { font-weight: 700; }
+.mh-bar {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(245, 240, 231, .25);
+}
+.mh-fill {
+  position: absolute;
+  inset: 0;
+  background: #c5a978;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  text-decoration: none;
+}
+.mh-cap { min-width: 74px; text-align: right; }
+.mh-stage.is-light .mh-hud { color: #17291e; }
+.mh-stage.is-light .mh-bar { background: rgba(23, 41, 30, .18); }
+.mh-stage.is-light .mh-fill { background: #8a6b3a; }
+
+/* mouse-following light: laptops only */
+.mh-cursor { display: none; }
+
+
+/* ============================================================
+   5. PHONE tweaks (up to 700px)
+   ============================================================ */
+@media (max-width: 700px) {
+  .mh { --nav: 70px; }
+  .mh-scene { --top: 98px; }
+}
+
+@media (max-width: 700px) and (max-height: 680px) {
+  .mh-scene { --top: 92px; --copy: 250px; }
+  .mh-scene:not([data-last]):not([data-first]) .mh-sub { display: none; }
+  .mh .mh-title { font-size: clamp(28px, 8.4vw, 36px); }
+}
+
+
+/* ============================================================
+   6. TABLET (701px and wider, still tall: stacked like phone, bigger)
+   ============================================================ */
+@media (min-width: 701px) {
+  .mh-scene { --copy: 320px; }
+  .mh-scene[data-kind="final"] { --copy: 400px; }
+  .mh-card { border-radius: 28px; }
+  .mh .mh-title { font-size: clamp(40px, 6vw, 60px); }
+  .mh .mh-sub { font-size: 17px; max-width: 40ch; }
+  .mh .mh-eyebrow { font-size: 11px; }
+  .mh-copy { padding-left: 56px; padding-right: 56px; }
+  .mh-hud { left: 56px; right: 56px; }
+  .mh-btn,
+  .mh-row .whatsapp-enquiry-button { min-height: 54px; font-size: 12px; }
+  .mh-row { max-width: 480px; }
+}
+
+
+/* ============================================================
+   7. LAPTOP (wide screens): card on one side, text on the other
+   ============================================================ */
+@media (min-width: 701px) and (min-aspect-ratio: 5/4) and (min-height: 540px) {
+
+  .mh-scene {
+    --ch: min(calc(var(--vh) - var(--nav) - 90px), 820px, calc(48vw / .8));
+    --cw: calc(var(--ch) * .8);
+    --top: calc(var(--nav) + (var(--vh) - var(--nav) - var(--ch)) / 2);
+    --cardx: 68%;
+    --cy: 52%;
+  }
+  .mh-scene[data-flip] { --cardx: 32%; }
+  .mh-card { border-radius: 30px; }
+
+  .mh-copy {
+    left: 6vw;
+    right: auto;
+    top: 50%;
+    bottom: auto;
+    width: min(36vw, 560px);
+    padding: 0;
+    transform: translate3d(0, calc(-50% + (1 - var(--io, 1)) * 34px), 0);
+  }
+  .mh-scene[data-flip] .mh-copy { left: auto; right: 6vw; }
+
+  .mh .mh-title { font-size: clamp(46px, 5.2vw, 88px); line-height: .98; }
+  .mh .mh-sub { margin-top: 18px; font-size: clamp(15px, 1.15vw, 18px); max-width: 38ch; }
+  .mh .mh-eyebrow { margin-bottom: 18px; font-size: 11px; }
+  .mh-hint { margin-top: 28px; }
+  .mh-row { max-width: 420px; }
+  .mh-btn:hover { background: var(--gold); }
+
+  .mh-hud {
+    left: 6vw;
+    right: auto;
+    top: auto;
+    bottom: 100px;
+    width: min(30vw, 380px);
+  }
+}
+
+
+/* ============================================================
+   8. MOUSE LIGHT + TILT (laptops with a mouse only)
+   ============================================================ */
+@media (hover: hover) and (pointer: fine) {
+  .mh-cursor {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    width: 560px;
+    height: 560px;
+    margin: -280px 0 0 -280px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(closest-side, rgba(255, 170, 80, .17), transparent);
+    opacity: 0;
+    transition: opacity .5s ease;
+  }
+  .mh-stage.is-pointer .mh-cursor { opacity: 1; }
+  .mh-stage.is-light .mh-cursor { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mh-flies,
+  .mh-dot::after,
+  .mh-cursor { display: none; }
+  .mh-hint i { animation: none; }
+  .mh-scene[data-first] .mh-copy > * { animation: none; }
+  .mh-card { transform: translate3d(-50%, 0, 0) scale(var(--cs, 1)); }
+}

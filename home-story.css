@@ -1,0 +1,114 @@
+/* ============================================================
+   WOOD VIDA — FULL-PAGE CINEMATIC BACKGROUND (index.html only)
+   Load AFTER style.css. Every new name starts with wv-cinematic.
+   Nothing here changes your navbar, drawers, forms or footer.
+   ============================================================ */
+
+/* The layer is hidden until JS switches the page into cinematic mode,
+   so if JS ever fails your page looks exactly as it did before. */
+.wv-cinematic { display: none; }
+
+body.wv-cinematic-on .wv-cinematic {
+  /* How much of the page colour sits on top of the scene.
+     0 = scene fully visible, 1 = scene hidden. Raise it if text feels busy. */
+  --wv-cinematic-veil: 0;          /* 0 = no overlay, the footage shows exactly as filmed. Raise (e.g. .3) only if you want it dimmed. */
+  --wv-cinematic-veil-dark: 0;
+
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: -1;                     /* behind everything */
+  pointer-events: none;            /* never blocks a click */
+  overflow: hidden;
+  background: #1d2a20;
+}
+
+/* ---------- scenes ---------- */
+.wv-cinematic-stage { position: absolute; inset: 0; }
+
+.wv-cinematic-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  background: var(--tone, #1d2a20);   /* earthy colour shows if an asset is missing */
+  perspective: 1400px;
+  perspective-origin: 50% 45%;
+}
+.wv-cinematic-scene.is-on { visibility: visible; }
+
+.wv-cinematic-media {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 55%;
+  transform: scale(1.22);
+  will-change: transform, filter;
+}
+.wv-cinematic-media > video,
+.wv-cinematic-media > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- foreground depth: two slow light drifts ---------- */
+.wv-cinematic-fg { position: absolute; inset: 0; pointer-events: none; }
+.wv-cinematic-fg i {
+  position: absolute;
+  display: block;
+  width: 70vmax;
+  height: 70vmax;
+  border-radius: 50%;
+  will-change: transform;
+}
+.wv-cinematic-fg i:first-child {
+  left: -25vmax; top: -20vmax;
+  background: radial-gradient(closest-side, rgba(255,232,180,.16), transparent);
+}
+.wv-cinematic-fg i:last-child {
+  right: -25vmax; bottom: -25vmax;
+  background: radial-gradient(closest-side, rgba(255,255,255,.07), transparent);
+}
+
+/* ---------- veil: keeps your existing text readable ---------- */
+.wv-cinematic-veil {
+  position: absolute;
+  inset: 0;
+  background: rgba(244, 240, 232, var(--wv-cinematic-veil));
+}
+body.dark-theme .wv-cinematic-veil {
+  background: rgba(15, 19, 16, var(--wv-cinematic-veil-dark));
+}
+
+/* ============================================================
+   LET THE LAYER SHOW THROUGH YOUR EXISTING SECTIONS
+   Only background colours change, and only while cinematic mode
+   is on. Text, spacing and layout are untouched.
+   .statement (green "Nature Preserved" band) and .site-footer
+   are deliberately left solid.
+   ============================================================ */
+body.wv-cinematic-on,
+body.wv-cinematic-on main,
+body.wv-cinematic-on .hero,
+body.wv-cinematic-on .story,
+body.wv-cinematic-on .collections,
+body.wv-cinematic-on .products-section,
+body.wv-cinematic-on .gallery-section,
+body.wv-cinematic-on .contact-section {
+  background: transparent;
+}
+
+/* ---------- mobile: slightly stronger veil, simpler effects (JS handles the rest) ---------- */
+@media (max-width: 768px) {
+  body.wv-cinematic-on .wv-cinematic {
+    --wv-cinematic-veil: 0;
+    --wv-cinematic-veil-dark: 0;
+  }
+}
+
+/* ---------- reduced motion: one calm still frame, no movement ---------- */
+.wv-cinematic-static .wv-cinematic-scene:first-child { opacity: 1; visibility: visible; }
+.wv-cinematic-static .wv-cinematic-media { transform: scale(1.08); }
+.wv-cinematic-static .wv-cinematic-fg { display: none; }

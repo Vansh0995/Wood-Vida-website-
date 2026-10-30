@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Account Settings | Wood Vida</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =====================================================
+           ACCOUNT SETTINGS PAGE
+        ===================================================== */
+
+        .settings-page {
+            min-height: 100vh;
+            background: var(--cream);
+            color: var(--green-dark);
+        }
+
+        /* TOP BAR */
+
+        .settings-topbar {
+            height: 82px;
+            padding: 0 5%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .settings-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--green-dark);
+            text-decoration: none;
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .settings-back svg {
+            width: 18px;
+            height: 18px;
+
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.6;
+        }
+
+        .settings-brand {
+            text-align: center;
+        }
+
+        .settings-brand-name {
+            font-family: var(--serif);
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        .settings-brand-tagline {
+            margin-top: 3px;
+
+            font-size: 7px;
+            letter-spacing: 2px;
+            color: var(--wood);
+        }
+
+        /* HERO */
+
+        .settings-heading {
+            max-width: 1250px;
+            margin: auto;
+
+            padding: 80px 5% 55px;
+        }
+
+        .settings-eyebrow {
+            margin-bottom: 16px;
+
+            color: var(--wood);
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .settings-heading h1 {
+            margin: 0;
+
+            font-family: var(--serif);
+            font-size: clamp(52px, 7vw, 88px);
+            font-weight: 400;
+            line-height: .92;
+            letter-spacing: -2px;
+        }
+
+        .settings-heading h1 em {
+            color: var(--wood);
+            font-style: italic;
+        }
+
+        /* LAYOUT */
+
+        .settings-layout {
+            max-width: 1250px;
+            margin: auto;
+
+            padding: 0 5% 110px;
+
+            display: grid;
+            grid-template-columns: 250px minmax(0, 1fr);
+
+            gap: 70px;
+        }
+
+        /* SIDEBAR */
+
+        .settings-sidebar {
+            align-self: start;
+
+            position: sticky;
+            top: 25px;
+        }
+
+        .settings-nav {
+            border-top: 1px solid var(--border);
+        }
+
+        .settings-nav a {
+            min-height: 55px;
+
+            padding: 0 5px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid var(--border);
+
+            color: var(--green-dark);
+            text-decoration: none;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .settings-nav a:hover,
+        .settings-nav a.active {
+            color: var(--wood);
+            padding-left: 12px;
+        }
+
+        /* CONTENT */
+
+        .settings-content {
+            min-width: 0;
+        }
+
+        .settings-section {
+            margin-bottom: 55px;
+
+            padding-bottom: 50px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .settings-section:last-child {
+            border-bottom: 0;
+        }
+
+        .settings-section-title {
+            margin: 0 0 8px;
+
+            font-family: var(--serif);
+            font-size: 31px;
+            font-weight: 400;
+        }
+
+        .settings-section-description {
+            margin: 0 0 30px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        /* PROFILE */
+
+        .profile-header {
+            margin-bottom: 30px;
+
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .profile-avatar {
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--green-dark);
+            color: var(--cream);
+
+            font-family: var(--serif);
+            font-size: 25px;
+        }
+
+        .profile-header-text strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            font-family: var(--serif);
+            font-size: 21px;
+            font-weight: 400;
+        }
+
+        .profile-header-text span {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        /* FORM */
+
+        .settings-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-field label {
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .form-field input,
+        .form-field select {
+            width: 100%;
+            min-height: 48px;
+
+            box-sizing: border-box;
+
+            padding: 0 14px;
+
+            border: 1px solid var(--border);
+
+            background: transparent;
+            color: var(--green-dark);
+
+            outline: none;
+
+            font-family: inherit;
+            font-size: 12px;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus {
+            border-color: var(--wood);
+        }
+
+        .settings-save {
+            margin-top: 25px;
+
+            min-height: 50px;
+
+            padding: 0 28px;
+
+            border: 1px solid var(--green-dark);
+
+            background: var(--green-dark);
+            color: var(--cream);
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            cursor: pointer;
+        }
+
+        /* ADDRESS */
+
+        .address-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .address-card {
+            padding: 22px;
+
+            border: 1px solid var(--border);
+
+            background: rgba(255,255,255,.15);
+        }
+
+        .address-card-header {
+            margin-bottom: 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .address-card-header strong {
+            font-family: var(--serif);
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .default-badge {
+            padding: 5px 8px;
+
+            background: var(--green-dark);
+            color: var(--cream);
+
+            font-size: 7px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .address-card p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 11px;
+            line-height: 1.7;
+        }
+
+        .address-actions {
+            margin-top: 18px;
+
+            display: flex;
+            gap: 18px;
+        }
+
+        .address-actions button {
+            border: 0;
+            padding: 0;
+
+            background: transparent;
+
+            color: var(--wood);
+
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            cursor: pointer;
+        }
+
+        .add-address {
+            margin-top: 15px;
+
+            width: 100%;
+            min-height: 52px;
+
+            border: 1px dashed var(--border);
+
+            background: transparent;
+            color: var(--green-dark);
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            cursor: pointer;
+        }
+
+        /* PREFERENCES */
+
+        .preference-row {
+            min-height: 65px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .preference-row:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .preference-info strong {
+            display: block;
+
+            margin-bottom: 4px;
+
+            font-size: 11px;
+        }
+
+        .preference-info span {
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        /* TOGGLE */
+
+        .toggle {
+            width: 42px;
+            height: 23px;
+
+            position: relative;
+
+            border: 0;
+            border-radius: 20px;
+
+            background: #b8b2a8;
+
+            cursor: pointer;
+        }
+
+        .toggle::after {
+            content: "";
+
+            position: absolute;
+
+            top: 3px;
+            left: 3px;
+
+            width: 17px;
+            height: 17px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            transition: .25s ease;
+        }
+
+        .toggle.active {
+            background: var(--green-dark);
+        }
+
+        .toggle.active::after {
+            transform: translateX(19px);
+        }
+
+        /* APPEARANCE */
+
+        .appearance-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .appearance-option {
+            min-height: 100px;
+
+            padding: 20px;
+
+            border: 1px solid var(--border);
+
+            background: transparent;
+
+            text-align: left;
+
+            cursor: pointer;
+        }
+
+        .appearance-option strong {
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-family: var(--serif);
+            font-size: 19px;
+            font-weight: 400;
+        }
+
+        .appearance-option span {
+            color: var(--muted);
+            font-size: 9px;
+        }
+
+        .appearance-option.active {
+            border-color: var(--green-dark);
+            background: rgba(36,69,50,.06);
+        }
+
+        /* DANGER */
+
+        .danger-zone {
+            padding: 25px;
+
+            border: 1px solid rgba(164,61,53,.25);
+        }
+
+        .logout-button {
+            min-height: 45px;
+
+            padding: 0 22px;
+
+            border: 1px solid #a43d35;
+
+            background: transparent;
+            color: #a43d35;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            cursor: pointer;
+        }
+
+        .delete-account {
+            margin-left: 15px;
+
+            border: 0;
+            background: transparent;
+
+            color: #a43d35;
+
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            cursor: pointer;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .settings-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .settings-sidebar {
+                position: static;
+            }
+
+            .settings-nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .settings-nav a {
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .settings-topbar {
+                height: 70px;
+                padding: 0 6%;
+            }
+
+            .settings-brand-name {
+                font-size: 19px;
+            }
+
+            .settings-heading {
+                padding: 65px 6% 40px;
+            }
+
+            .settings-heading h1 {
+                font-size: 55px;
+            }
+
+            .settings-layout {
+                padding: 0 6% 80px;
+            }
+
+            .settings-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-field.full {
+                grid-column: auto;
+            }
+
+            .appearance-options {
+                grid-template-columns: 1fr;
+            }
+
+            .delete-account {
+                display: block;
+                margin: 18px 0 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="mobile.css">
+</head>
+
+
+<body>
+
+<div class="settings-page">
+
+    <!-- TOP BAR -->
+
+    <header class="settings-topbar">
+
+        <a
+            href="index.html"
+            class="settings-back"
+        >
+
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5"></path>
+                <path d="M11 6l-6 6 6 6"></path>
+            </svg>
+
+            Back
+
+        </a>
+
+
+        <a
+            href="index.html"
+            class="settings-brand"
+            style="text-decoration:none;color:inherit;"
+        >
+
+            <div class="settings-brand-name">
+                WOOD VIDA
+            </div>
+
+            <div class="settings-brand-tagline">
+                NATURE'S ART
+            </div>
+
+        </a>
+
+        <div></div>
+
+    </header>
+
+
+    <!-- HEADING -->
+
+    <section class="settings-heading">
+
+        <div class="settings-eyebrow">
+            YOUR ACCOUNT
+        </div>
+
+        <h1>
+            Account
+            <em>settings.</em>
+        </h1>
+
+    </section>
+
+
+    <!-- CONTENT -->
+
+    <main class="settings-layout">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="settings-sidebar">
+
+            <nav class="settings-nav">
+
+                <a
+                    href="#personal"
+                    class="active"
+                >
+                    Personal Information
+                    <span>→</span>
+                </a>
+
+                <a href="#security">
+                    Security
+                    <span>→</span>
+                </a>
+
+                <a href="#addresses">
+                    Saved Addresses
+                    <span>→</span>
+                </a>
+
+                <a href="#preferences">
+                    Preferences
+                    <span>→</span>
+                </a>
+
+                <a href="#appearance">
+                    Appearance
+                    <span>→</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- MAIN SETTINGS -->
+
+        <div class="settings-content">
+
+
+            <!-- PERSONAL -->
+
+            <section
+                class="settings-section"
+                id="personal"
+            >
+
+                <h2 class="settings-section-title">
+                    Personal Information
+                </h2>
+
+                <p class="settings-section-description">
+                    Manage the information associated with your Wood Vida account.
+                </p>
+
+
+                <div class="profile-header">
+
+                    <div class="profile-avatar">
+                        W
+                    </div>
+
+                    <div class="profile-header-text">
+
+                        <strong id="settings-user-name">
+                            Guest User
+                        </strong>
+
+                        <span id="settings-user-email">
+                            Sign in to manage your account
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <form class="settings-form">
+
+                    <div class="form-field">
+
+                        <label for="full-name">
+                            Full Name
+                        </label>
+
+                        <input
+                            id="full-name"
+                            type="text"
+                            placeholder="Your full name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            id="phone"
+                            type="tel"
+                            placeholder="+91"
+                        >
+
+                    </div>
+
+
+                    <div class="form-field full">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            id="email"
+                            type="email"
+                            placeholder="your@email.com"
+                        >
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="city">
+                            City
+                        </label>
+
+                        <input
+                            id="city"
+                            type="text"
+                            placeholder="Your city"
+                        >
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="country">
+                            Country
+                        </label>
+
+                        <input
+                            id="country"
+                            type="text"
+                            value="India"
+                        >
+
+                    </div>
+
+                </form>
+
+
+                <button
+                    type="button"
+                    class="settings-save"
+                >
+                    Save Changes
+                </button>
+
+            </section>
+
+
+            <!-- SECURITY -->
+
+            <section
+                class="settings-section"
+                id="security"
+            >
+
+                <h2 class="settings-section-title">
+                    Security
+                </h2>
+
+                <p class="settings-section-description">
+                    Keep your Wood Vida account secure.
+                </p>
+
+
+                <div class="settings-form">
+
+                    <div class="form-field full">
+
+                        <label for="new-password">
+                            New Password
+                        </label>
+
+                        <input
+                            id="new-password"
+                            type="password"
+                            placeholder="Enter a new password"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="settings-save"
+                >
+                    Change Password
+                </button>
+
+            </section>
+
+
+            <!-- ADDRESSES -->
+
+            <section
+                class="settings-section"
+                id="addresses"
+            >
+
+                <h2 class="settings-section-title">
+                    Saved Addresses
+                </h2>
+
+                <p class="settings-section-description">
+                    Save your delivery details for future inquiries and purchases.
+                </p>
+
+
+                <div class="address-list">
+
+                    <div class="address-card">
+
+                        <div class="address-card-header">
+
+                            <strong>
+                                Home
+                            </strong>
+
+                            <span class="default-badge">
+                                Default
+                            </span>
+
+                        </div>
+
+                        <p>
+                            No address saved yet.
+                        </p>
+
+                        <div class="address-actions">
+
+                            <button type="button">
+                                Edit
+                            </button>
+
+                            <button type="button">
+                                Delete
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="add-address"
+                >
+                    + Add New Address
+                </button>
+
+            </section>
+
+
+            <!-- PREFERENCES -->
+
+            <section
+                class="settings-section"
+                id="preferences"
+            >
+
+                <h2 class="settings-section-title">
+                    Preferences
+                </h2>
+
+                <p class="settings-section-description">
+                    Choose what kind of updates you would like to receive.
+                </p>
+
+
+                <div class="preference-row">
+
+                    <div class="preference-info">
+
+                        <strong>
+                            Order Updates
+                        </strong>
+
+                        <span>
+                            Receive updates about your inquiries and orders.
+                        </span>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="toggle active"
+                    ></button>
+
+                </div>
+
+
+                <div class="preference-row">
+
+                    <div class="preference-info">
+
+                        <strong>
+                            Email Notifications
+                        </strong>
+
+                        <span>
+                            Receive important account notifications.
+                        </span>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="toggle active"
+                    ></button>
+
+                </div>
+
+
+                <div class="preference-row">
+
+                    <div class="preference-info">
+
+                        <strong>
+                            Offers & Updates
+                        </strong>
+
+                        <span>
+                            Receive occasional Wood Vida news and updates.
+                        </span>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="toggle"
+                    ></button>
+
+                </div>
+
+            </section>
+
+
+            <!-- APPEARANCE -->
+
+            <section
+                class="settings-section"
+                id="appearance"
+            >
+
+                <h2 class="settings-section-title">
+                    Appearance
+                </h2>
+
+                <p class="settings-section-description">
+                    Choose how Wood Vida looks across the website.
+                </p>
+
+
+                <div class="appearance-options">
+
+                    <button
+                        type="button"
+                        class="appearance-option active"
+                        id="settings-light-theme"
+                    >
+
+                        <strong>
+                            Light
+                        </strong>
+
+                        <span>
+                            Natural cream & wood tones
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="appearance-option"
+                        id="settings-dark-theme"
+                    >
+
+                        <strong>
+                            Dark
+                        </strong>
+
+                        <span>
+                            Deep forest & warm tones
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ACCOUNT MANAGEMENT -->
+
+            <section class="settings-section">
+
+                <h2 class="settings-section-title">
+                    Account Management
+                </h2>
+
+                <p class="settings-section-description">
+                    Manage your Wood Vida account.
+                </p>
+
+
+                <div class="danger-zone">
+
+                    <button
+                        type="button"
+                        class="logout-button"
+                        id="settings-logout"
+                    >
+                        Logout
+                    </button>
+
+                    <button
+                        type="button"
+                        class="delete-account"
+                    >
+                        Delete Account
+                    </button>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================================
+     account-setting.html
+     Delete EVERYTHING from the first  <script>  that starts with
+     "ACCOUNT SETTINGS — THEME"  down to  </html>
+     (this includes the old  <script type="module">  with firebaseConfig)
+     and paste this whole file there.
+====================================================================== -->
+
+<script>
+/* =========================================================
+   ACCOUNT SETTINGS — THEME
+========================================================= */
+
+const lightThemeButton =
+    document.getElementById("settings-light-theme");
+
+const darkThemeButton =
+    document.getElementById("settings-dark-theme");
+
+
+function updateSettingsThemeButtons(theme) {
+
+    if (theme === "dark") {
+
+        darkThemeButton.classList.add("active");
+        lightThemeButton.classList.remove("active");
+
+    } else {
+
+        lightThemeButton.classList.add("active");
+        darkThemeButton.classList.remove("active");
+
+    }
+
+}
+
+
+function applySettingsTheme(theme) {
+
+    if (theme === "dark") {
+
+        document.body.classList.add("dark-theme");
+
+    } else {
+
+        document.body.classList.remove("dark-theme");
+
+    }
+
+    try {
+        localStorage.setItem("woodVidaTheme", theme);
+    } catch (error) {}
+
+    updateSettingsThemeButtons(theme);
+}
+
+
+let savedTheme = "light";
+
+try {
+    savedTheme = localStorage.getItem("woodVidaTheme") || "light";
+} catch (error) {}
+
+applySettingsTheme(savedTheme);
+
+
+lightThemeButton.addEventListener(
+    "click",
+    function () {
+        applySettingsTheme("light");
+    }
+);
+
+
+darkThemeButton.addEventListener(
+    "click",
+    function () {
+        applySettingsTheme("dark");
+    }
+);
+
+
+/* =========================================================
+   PREFERENCE TOGGLES
+   (account-settings.js saves them to your account)
+========================================================= */
+
+document.querySelectorAll(".toggle").forEach(function(toggle) {
+
+    toggle.addEventListener("click", function() {
+
+        this.classList.toggle("active");
+
+    });
+
+});
+</script>
+
+<!-- all account logic (name, phone, password, logout, delete) -->
+<script type="module" src="account-settings.js"></script>
+
+<script src="navbar.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,449 @@
+/* ============================================================
+   WOOD VIDA — MOBILE.CSS  (phone + tablet only)
+   Laptop / PC design is NOT touched: every rule is inside
+   a max-width media query.
+
+   Link it LAST in <head> of every page (after style.css, shop.css,
+   home-redesign.css and after any inline <style>):
+   <link rel="stylesheet" href="mobile.css">
+
+   Tablet = up to 1000px     Phone = up to 700px
+   ============================================================ */
+
+
+/* ============================================================
+   1. TABLET + PHONE  (max-width: 1000px)
+   ============================================================ */
+@media (max-width: 1000px) {
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* ---------- top navbar: tighter so nothing overflows ---------- */
+  .nav-inner { gap: 14px; }
+  .site-nav .brand { min-width: 0; }
+  .brand-name { white-space: nowrap; }
+  .brand-tagline { white-space: nowrap; }
+  .cart-button { white-space: nowrap; }
+
+  /* when the top bar slides away it must not block taps underneath */
+  .site-nav.top-nav-hidden { pointer-events: none; }
+
+  /* ---------- bottom floating navbar ---------- */
+  .nav-menu {
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    width: calc(100% - 24px);
+    max-width: 760px;
+    min-height: 54px;
+    padding: 0 12px;
+    gap: 2px;
+    justify-content: flex-start;
+    background: rgba(23, 41, 30, .96);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border: 1px solid rgba(197, 169, 120, .28);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(10, 18, 13, .28);
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+
+  .nav-menu a {
+    padding: 11px 13px;
+    border-radius: 999px;
+    color: #f5f0e7;
+    font-size: 10.5px;
+    letter-spacing: 1.2px;
+    scroll-snap-align: center;
+    transition: background .25s ease, color .25s ease;
+  }
+  .nav-menu a:hover { color: #f5f0e7; }
+
+  .nav-menu a[aria-current="page"],
+  .nav-menu a[aria-current="page"]:hover {
+    background: #c5a978;
+    color: #17291e;
+  }
+  body.dark-theme .nav-menu a { color: #f5f0e7; }
+  body.dark-theme .nav-menu a[aria-current="page"] { color: #17291e; }
+
+  /* keep bottom nav visible while the top bar is hidden,
+     hide it only when the footer is on screen */
+  .site-nav.top-nav-hidden .nav-menu {
+    opacity: 1;
+    transform: translateX(-50%);
+    filter: none;
+  }
+  .nav-menu.navbar-hidden,
+  .site-nav.top-nav-hidden .nav-menu.navbar-hidden {
+    opacity: 0;
+    transform: translateX(-50%) translateY(90px);
+    pointer-events: none;
+  }
+
+  /* ---------- heroes: no forced full-screen height ---------- */
+  .about-hero,
+  .collection-page-hero,
+  .nature-hero,
+  .custom-hero,
+  .story-hero { min-height: auto; }
+
+  /* ---------- collection page ---------- */
+  .cl-bar { top: 0; }
+  .cl-tabs {
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent);
+            mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent);
+    padding-right: 28px;
+  }
+
+  /* ---------- product page ---------- */
+  .pd-gallery,
+  .pd-info { width: 100%; max-width: 760px; margin-inline: auto; }
+
+  /* ---------- contact page ---------- */
+  .contact-enquiry { display: grid; gap: 48px; }
+  .contact-page-group { margin-bottom: 21px; }
+  .contact-support > h2 {
+    margin: 0 0 36px;
+    font-family: var(--serif);
+    font-weight: 400;
+    color: var(--green-dark);
+  }
+  .contact-support-card > span,
+  .contact-detail-card > span {
+    display: block;
+    margin-bottom: 14px;
+    color: var(--wood);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  /* ---------- footer ---------- */
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 24px; }
+
+  /* ---------- account drawer + login popup: real viewport height ---------- */
+  .account-drawer { height: 100vh; height: 100dvh; }
+  .login-box { max-height: calc(100vh - 40px); max-height: calc(100dvh - 40px); }
+}
+
+
+/* ============================================================
+   2. PHONE ONLY  (max-width: 700px)
+   ============================================================ */
+@media (max-width: 700px) {
+
+  /* ---------- no sideways wobble ---------- */
+  body { width: 100%; }
+
+  /* iOS zooms the whole page when an input is under 16px — that
+     is what pushed the layout "out of the screen" */
+  input,
+  select,
+  textarea { font-size: 16px !important; }
+
+  /* ---------- TOP NAVBAR ---------- */
+  .nav-inner {
+    width: calc(100% - 24px);
+    gap: 8px;
+  }
+  .site-nav .brand {
+    flex: 1 1 auto;
+    gap: 8px;
+    overflow: hidden;
+  }
+  .site-nav .brand-logo { width: 38px; height: 38px; }
+  .brand-name { font-size: 15px; letter-spacing: 2.5px; }
+  .brand-tagline { font-size: 7px; letter-spacing: 2px; margin-top: 3px; }
+
+  /* account: icon only */
+  .login-button {
+    margin-left: 0;
+    min-width: 36px;
+    min-height: 36px;
+  }
+  .login-button > span:last-child { display: none; }
+  .account-icon,
+  .account-icon svg { width: 25px; height: 25px; }
+
+  .whatsapp-nav-icon,
+  .whatsapp-nav-icon svg { width: 28px !important; height: 28px !important; }
+
+  .cart-button { padding: 7px 12px; font-size: 11px; }
+
+  /* search: round icon that opens into a full-width bar when tapped */
+  .site-search {
+    position: relative;
+    flex: 0 0 38px;
+    width: 38px;
+    max-width: 38px;
+    height: 38px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+    background: transparent;
+  }
+  .site-search input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .site-search:focus-within {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    z-index: 30;
+    width: auto;
+    max-width: none;
+    height: 44px;
+    padding: 0 16px;
+    justify-content: flex-start;
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(20, 35, 25, .18);
+  }
+  .site-search:focus-within input {
+    position: static;
+    opacity: 1;
+    cursor: text;
+  }
+
+  /* ---------- BOTTOM NAVBAR ---------- */
+  .nav-menu {
+    padding: 0 14px;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+  }
+  .nav-menu a { font-size: 10px; padding: 11px 12px; }
+
+  /* ---------- HEADINGS: sized so one word never exceeds the screen ---------- */
+  .about-hero-title,
+  .collection-page-title,
+  .nature-hero-title,
+  .custom-hero-title,
+  .contact-page-hero h1,
+  .story-hero-content h1,
+  .gallery-hero-copy h1,
+  .cl-title,
+  .pd-title,
+  .settings-heading h1,
+  .cart-heading h1,
+  .hero-title {
+    font-size: clamp(38px, 11.5vw, 52px);
+    line-height: 1;
+    letter-spacing: -.01em;
+    overflow-wrap: break-word;
+  }
+
+  .story-title,
+  .section-title,
+  .about-large-title,
+  .about-process-title,
+  .about-philosophy-content h2,
+  .about-final h2,
+  .nature-belief-title,
+  .nature-dont-title,
+  .nature-process-title,
+  .nature-statement h2,
+  .nature-final h2,
+  .custom-large-title,
+  .custom-visual-content h2,
+  .custom-enquiry > h2,
+  .custom-final h2,
+  .collection-intro-title,
+  .collection-statement h2,
+  .collection-final h2,
+  .contact-support-heading h2,
+  .contact-support > h2,
+  .contact-enquiry-copy h2,
+  .contact-final h2,
+  .story-founder-content h2,
+  .story-philosophy h2,
+  .story-statement h2,
+  .story-cta h2,
+  .gallery-intro-premium h2,
+  .gallery-statement-premium h2,
+  .gallery-final-premium h2,
+  .cl-statement h2,
+  .cl-final h2,
+  .pd-extra-intro h2,
+  .pd-related-head h2,
+  .statement-title {
+    font-size: clamp(34px, 10vw, 46px);
+    line-height: 1.04;
+    letter-spacing: -.01em;
+    overflow-wrap: break-word;
+  }
+
+  /* ---------- rounded images a little softer ---------- */
+  .hero-media img,
+  .product-image img,
+  .gallery-item img,
+  .about-hero-image img,
+  .about-create-image img,
+  .about-philosophy-image img,
+  .collection-page-hero-image img,
+  .nature-hero-image img,
+  .nature-material-image img,
+  .custom-hero-image img,
+  .custom-visual-image img { border-radius: 22px; }
+
+  /* ---------- section spacing ---------- */
+  .about-hero,
+  .collection-page-hero,
+  .nature-hero,
+  .custom-hero,
+  .story-hero { padding-top: 40px; }
+
+  .about-create,
+  .nature-material,
+  .custom-process,
+  .contact-details,
+  .contact-support,
+  .contact-enquiry { padding-left: 6%; padding-right: 6%; }
+
+  /* ---------- contact page ---------- */
+  .contact-detail-card,
+  .contact-support-card { min-height: auto; }
+  .contact-support-grid { width: 100%; }
+  .contact-page-hero-media,
+  .contact-page-hero-media img { min-height: 320px; }
+
+  /* ---------- COLLECTION ---------- */
+  .cl-intro { padding: 40px 6% 24px; }
+  .cl-bar-inner { padding: 10px 16px; }
+  .cl-tab { min-height: 38px; padding: 0 16px; font-size: 10px; }
+  .cl-section { padding: 28px 16px 80px; }
+  .cl-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 12px;
+  }
+  .cl-card-media,
+  .cl-soon-media { border-radius: 16px; }
+  .cl-card-name { font-size: 17px; }
+  .cl-card-cat { font-size: 8px; letter-spacing: 2px; }
+  .cl-card-price { font-size: 11px; }
+  .cl-view { display: none; }
+
+  /* ---------- PRODUCT ---------- */
+  .pd-crumbs { padding: 20px 6% 0; font-size: 10px; letter-spacing: 1.5px; line-height: 1.8; }
+  .pd { padding: 18px 6% 70px; gap: 36px; }
+  .pd-main { height: auto; min-height: 0; aspect-ratio: 4 / 5; max-height: 72vh; }
+  .pd-price { font-size: 22px; }
+  .pd-spec { font-size: 12px; gap: 14px; }
+  .pd-actions { flex-direction: column; align-items: stretch; }
+  .pd-actions .button,
+  .pd-actions .whatsapp-enquiry-button { width: 100%; }
+  .pd-extra { padding: 70px 6%; }
+  .pd-related { padding: 50px 16px 150px; }
+
+  /* ---------- HOME PAGE (no scroll-video on phone) ---------- */
+  .wv-cinematic { display: none !important; }
+
+  body main.hm-main,
+  body.wv-cinematic-on main.hm-main { background: #17291e; }
+
+  .hm-main .hm-hero {
+    min-height: calc(100vh - 70px);
+    min-height: calc(100svh - 70px);
+    padding: 48px 6% 120px;
+    background-color: #17291e;
+    background-image:
+      linear-gradient(180deg, rgba(8, 14, 10, .52) 0%, rgba(8, 14, 10, .82) 100%),
+      url("Assets/forest-poster.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .hm-hero-inner::before { display: none; }
+  .hm-main .hm-hero-title {
+    font-size: clamp(40px, 12vw, 56px);
+    line-height: .98;
+    margin: 18px 0 22px;
+  }
+  .hm-main .hm-hero-text { font-size: 15px; line-height: 1.8; }
+  .hm-actions { gap: 12px; margin-top: 28px; }
+  .hm-facts { margin-top: 32px; gap: 6px 18px; }
+  .hm-facts li { font-size: 10px; letter-spacing: 1.5px; }
+
+  .hm-section { margin-bottom: 40px; scroll-margin-top: 80px; }
+  .hm-panel {
+    padding: 28px 20px;
+    background: #1d3226;
+    border-color: rgba(245, 240, 231, .12);
+  }
+  .hm-panel-green { background: #244532; }
+  .hm-card { background: #1d3226; }
+
+  .hm-main .hm-title { font-size: clamp(32px, 9.5vw, 44px); line-height: 1.02; }
+  .hm-main .hm-quote {
+    max-width: none;
+    font-size: clamp(36px, 10vw, 50px);
+    line-height: 1;
+  }
+  .hm-main .hm-card-title { font-size: 30px; }
+  .hm-main .hm-text { font-size: 14px; line-height: 1.85; }
+  .hm-statement { padding-block: 44px; }
+  .hm-steps { gap: 18px; }
+
+  /* simple, reliable: no scroll-linked reveal on phone */
+  .hm-reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .site-footer { padding: 56px 6% calc(40px + env(safe-area-inset-bottom, 0px)); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+  .footer-grid > div:first-child { grid-column: 1 / -1; }
+  .social-links { gap: 14px; }
+  .social-links a { width: 32px; height: 32px; flex-basis: 32px; }
+  .social-links svg { width: 28px; height: 28px; }
+
+  /* ---------- LOGIN POPUP ---------- */
+  .login-box { padding: 42px 22px 28px; }
+
+  /* ---------- SETTINGS / CART ---------- */
+  .settings-nav { grid-template-columns: 1fr 1fr; }
+  .cart-item-name { font-size: 21px; }
+}
+
+
+/* ============================================================
+   3. SMALL PHONES  (max-width: 400px)
+   ============================================================ */
+@media (max-width: 400px) {
+  .brand-tagline { display: none; }
+  .site-nav .brand-logo { width: 34px; height: 34px; }
+  .brand-name { font-size: 13px; letter-spacing: 1.8px; }
+  .cart-button { padding: 6px 10px; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ============================================================
+   4. TOUCH SCREENS: no "stuck" hover effects after a tap
+   ============================================================ */
+@media (max-width: 1000px) and (hover: none) {
+  .hm-card:hover,
+  .contact-detail-card:hover,
+  .contact-support-card:hover,
+  .story-process-card:hover,
+  .cl-tab:hover { transform: none; }
+
+  .hero-media:hover img,
+  .product-card:hover .product-image img,
+  .gallery-item:hover img,
+  .about-hero-image:hover img,
+  .collection-page-hero-image:hover img,
+  .nature-hero-image:hover img,
+  .custom-hero-image:hover img,
+  .cl-card:hover .cl-card-media img,
+  .pd-main:hover img,
+  .premium-gallery-item:hover img { transform: none; filter: none; }
+}
