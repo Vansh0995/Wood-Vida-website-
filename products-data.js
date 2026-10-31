@@ -192,27 +192,27 @@ window.WV_PRODUCT_IMAGES = {
   ],
 
   13: [
-    "Assets/table3img1.png",
-    "Assets/table3img2.png",
-    "Assets/table3img3.png",
-    "Assets/table3img4.png",
-    "Assets/table3img5.png"
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png"
   ],
 
   14: [
-    "Assets/table4img1.png",
-    "Assets/table4img2.png",
-    "Assets/table4img3.png",
-    "Assets/table4img4.png",
-    "Assets/table4img5.png"
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png"
   ],
 
   15: [
-    "Assets/table5img1.png",
-    "Assets/table5img2.png",
-    "Assets/table5img3.png",
-    "Assets/table5img4.png",
-    "Assets/table5img5.png"
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png"
   ]
 };
 
