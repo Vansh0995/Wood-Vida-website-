@@ -61,7 +61,7 @@ function wvMakeProduct(id, category, name, imageLabel, description, dimensions, 
 images: productImages,
 
     price: null,
-    availability: "Made to order",
+    availability: "Ready To Shipping",
     wood,
     finish: "Hand-finished natural finish",
     dimensions,
