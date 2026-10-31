@@ -92,7 +92,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/sidelamp1img2.png",
     "Assets/sidelamp1img3.png",
     "Assets/sidelamp1img4.png",
-    "Assets/products/forest-glow-5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   2: [
@@ -100,7 +100,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/sidelamp2img2.png",
     "Assets/sidelamp2img3.png",
     "Assets/sidelamp2img4.png",
-    "Assets/sidelamp2img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   3: [
@@ -108,7 +108,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/sidelamp3img2.png",
     "Assets/sidelamp3img3.png",
     "Assets/sidelamp3img4.png",
-    "Assets/sidelamp3img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   4: [
@@ -116,7 +116,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/sidelamp4img2.png",
     "Assets/sidelamp4img3.png",
     "Assets/sidelamp4img4.png",
-    "Assets/sidelamp4img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   5: [
@@ -124,7 +124,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/sidelamp5img2.png",
     "Assets/sidelamp5img3.png",
     "Assets/sidelamp5img4.png",
-    "Assets/sidelamp5img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   // =====================================
@@ -136,7 +136,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/wallart1img2.png",
     "Assets/wallart1img3.png",
     "Assets/wallart1img4.png",
-    "Assets/wallart1img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   7: [
@@ -144,7 +144,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/wallart2img2.png",
     "Assets/wallart2img3.png",
     "Assets/wallart2img4.png",
-    "Assets/wallart2img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   8: [
@@ -152,7 +152,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/wallart3img2.png",
     "Assets/wallart3img3.png",
     "Assets/wallart3img4.png",
-    "Assets/wallart3img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   9: [
@@ -160,7 +160,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/wallart4img2.png",
     "Assets/wallart4img3.png",
     "Assets/wallart4img4.png",
-    "Assets/wallart4img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   10: [
@@ -168,7 +168,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/wallart5img2.png",
     "Assets/wallart5img3.png",
     "Assets/wallart5img4.png",
-    "Assets/wallart5img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   // =====================================
@@ -188,7 +188,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/table2img2.png",
     "Assets/table2img3.png",
     "Assets/table2img4.png",
-    "Assets/table2img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   13: [
