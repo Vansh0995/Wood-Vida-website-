@@ -61,7 +61,7 @@ function wvMakeProduct(id, category, name, imageLabel, description, dimensions, 
 images: productImages,
 
     price: null,
-    availability: "Made to order",
+    availability: "Ready To Shipping",
     wood,
     finish: "Hand-finished natural finish",
     dimensions,
@@ -92,7 +92,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/sidelamp1img2.png",
     "Assets/sidelamp1img3.png",
     "Assets/sidelamp1img4.png",
-    "Assets/products/forest-glow-5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   2: [
@@ -100,7 +100,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/sidelamp2img2.png",
     "Assets/sidelamp2img3.png",
     "Assets/sidelamp2img4.png",
-    "Assets/sidelamp2img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   3: [
@@ -108,7 +108,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/sidelamp3img2.png",
     "Assets/sidelamp3img3.png",
     "Assets/sidelamp3img4.png",
-    "Assets/sidelamp3img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   4: [
@@ -116,7 +116,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/sidelamp4img2.png",
     "Assets/sidelamp4img3.png",
     "Assets/sidelamp4img4.png",
-    "Assets/sidelamp4img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   5: [
@@ -124,7 +124,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/sidelamp5img2.png",
     "Assets/sidelamp5img3.png",
     "Assets/sidelamp5img4.png",
-    "Assets/sidelamp5img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   // =====================================
@@ -136,7 +136,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/wallart1img2.png",
     "Assets/wallart1img3.png",
     "Assets/wallart1img4.png",
-    "Assets/wallart1img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   7: [
@@ -144,7 +144,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/wallart2img2.png",
     "Assets/wallart2img3.png",
     "Assets/wallart2img4.png",
-    "Assets/wallart2img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   8: [
@@ -152,7 +152,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/wallart3img2.png",
     "Assets/wallart3img3.png",
     "Assets/wallart3img4.png",
-    "Assets/wallart3img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   9: [
@@ -160,7 +160,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/wallart4img2.png",
     "Assets/wallart4img3.png",
     "Assets/wallart4img4.png",
-    "Assets/wallart4img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   10: [
@@ -168,7 +168,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/wallart5img2.png",
     "Assets/wallart5img3.png",
     "Assets/wallart5img4.png",
-    "Assets/wallart5img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   // =====================================
@@ -188,31 +188,31 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/table2img2.png",
     "Assets/table2img3.png",
     "Assets/table2img4.png",
-    "Assets/table2img5.png"
+    "Assets/coming-soon-img.png"
   ],
 
   13: [
-    "Assets/table3img1.png",
-    "Assets/table3img2.png",
-    "Assets/table3img3.png",
-    "Assets/table3img4.png",
-    "Assets/table3img5.png"
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png"
   ],
 
   14: [
-    "Assets/table4img1.png",
-    "Assets/table4img2.png",
-    "Assets/table4img3.png",
-    "Assets/table4img4.png",
-    "Assets/table4img5.png"
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png"
   ],
 
   15: [
-    "Assets/table5img1.png",
-    "Assets/table5img2.png",
-    "Assets/table5img3.png",
-    "Assets/table5img4.png",
-    "Assets/table5img5.png"
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png",
+    "Assets/coming-soon-img.png"
   ]
 };
 
