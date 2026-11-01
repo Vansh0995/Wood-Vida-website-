@@ -128,7 +128,7 @@
           <img
             src="${esc(p.image)}"
             alt="${esc(p.name)}"
-            loading="lazy"
+            loading="fast"
             decoding="async"
           >
 
