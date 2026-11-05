@@ -7647,3 +7647,193 @@ body.dark-theme .account-drawer-close:hover {
     position: absolute;
     inset: 0;
 }
+
+/* =========================================
+   WOOD VIDA — AMAZON STYLE PRODUCT GALLERY
+========================================= */
+
+/* Desktop: thumbnails left, main image right */
+.pd-gallery {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  position: sticky;
+  top: 112px;
+}
+
+.pd-main {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  height: min(76vh, 780px);
+  cursor: zoom-in;
+  position: relative;
+  overflow: hidden;
+}
+
+.pd-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pd-thumbs {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  max-height: min(76vh, 780px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.pd-thumb {
+  width: 68px;
+  height: 78px;
+  flex: 0 0 78px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.pd-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Product information */
+.pd-info {
+  max-width: 620px;
+  width: 100%;
+}
+
+.pd-price {
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.pd-specs {
+  margin-top: 25px;
+}
+
+/* =========================================
+   IMAGE LIGHTBOX
+========================================= */
+
+.pd-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 35px;
+  background: rgba(15, 18, 15, 0.94);
+  cursor: zoom-out;
+}
+
+.pd-lightbox.active {
+  display: flex;
+}
+
+.pd-lightbox img {
+  display: block;
+  max-width: 92vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.pd-lightbox-close {
+  position: absolute;
+  top: 22px;
+  right: 30px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 42px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+body.pd-lightbox-open {
+  overflow: hidden;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+  .pd-gallery {
+    position: static;
+    grid-template-columns: 76px minmax(0, 1fr);
+  }
+
+  .pd-main {
+    height: min(70vh, 680px);
+  }
+
+  .pd-thumbs {
+    flex-direction: column;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .pd-gallery {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .pd-main {
+    grid-column: 1;
+    grid-row: 1;
+    height: 65vh;
+    min-height: 350px;
+    max-height: 560px;
+  }
+
+  .pd-thumbs {
+    grid-column: 1;
+    grid-row: 2;
+    flex-direction: row;
+    max-height: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .pd-thumb {
+    width: 65px;
+    height: 65px;
+    flex: 0 0 65px;
+  }
+
+  .pd-info {
+    padding-top: 12px;
+  }
+
+  .pd-lightbox {
+    padding: 12px;
+  }
+
+  .pd-lightbox img {
+    max-width: 96vw;
+    max-height: 82vh;
+  }
+
+  .pd-lightbox-close {
+    top: 12px;
+    right: 18px;
+  }
+}

@@ -1057,6 +1057,58 @@
         }
       );
     });
+    
+/* ==========================================================
+   IMAGE ZOOM / LIGHTBOX
+   ========================================================== */
+
+const lightbox = document.createElement("div");
+
+lightbox.className = "pd-lightbox";
+lightbox.setAttribute("role", "dialog");
+lightbox.setAttribute("aria-modal", "true");
+lightbox.setAttribute("aria-label", "Product image preview");
+
+lightbox.innerHTML = `
+  <button type="button" class="pd-lightbox-close"
+    aria-label="Close image preview">&times;</button>
+  <img src="" alt="Product enlarged view">
+`;
+
+document.body.appendChild(lightbox);
+
+const zoomImage = lightbox.querySelector("img");
+const closeButton = lightbox.querySelector(".pd-lightbox-close");
+
+const openLightbox = () => {
+  zoomImage.src = photo.src;
+  zoomImage.alt = photo.alt;
+  lightbox.classList.add("active");
+  document.body.classList.add("pd-lightbox-open");
+  closeButton.focus();
+};
+
+const closeLightbox = () => {
+  lightbox.classList.remove("active");
+  document.body.classList.remove("pd-lightbox-open");
+};
+
+photo.addEventListener("click", openLightbox);
+
+closeButton.addEventListener("click", closeLightbox);
+
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeLightbox();
+  }
+});
+
 
     /* ==========================================================
        CART
