@@ -146,337 +146,345 @@ window.WV_PRODUCT_IMAGES = {
   /* ---------------- SIDE LAMPS 1-5 ---------------- */
 
   1: [
-    "Assets/sidelamp1img1.png",
-    "Assets/sidelamp1img2.png",
-    "Assets/sidelamp1img3.png",
-    "Assets/sidelamp1img4.png",
-    "Assets/products/forest-glow-detail.jpg"
+    "Assets/products/sidelamp1img1.png",
+    "Assets/products/sidelamp1img2.png",
+    "Assets/products/sidelamp1img3.png",
+    "Assets/products/sidelamp1img4.png",
+    "Assets/products/coming-soon.png"
   ],
 
   2: [
-    "Assets/sidelamp2img1.png",
-    "Assets/sidelamp2img2.png",
-    "Assets/sidelamp2img3.png",
-    "Assets/sidelamp2img4.png",
-    "Assets/products/amber-root-detail.jpg"
+    "Assets/products/sidelamp2img1.png",
+    "Assets/products/sidelamp2img2.png",
+    "Assets/products/sidelamp2img3.png",
+    "Assets/products/sidelamp2img4.png",
+    "Assets/products/coming-soon.png"
   ],
 
   3: [
-    "Assets/sidelamp3img1.png",
-    "Assets/sidelamp3img2.png",
-    "Assets/sidelamp3img3.png",
-    "Assets/sidelamp3img4.png",
-    "Assets/products/timber-aura-detail.jpg"
+    "Assets/products/sidelamp3img1.png",
+    "Assets/products/sidelamp3img2.png",
+    "Assets/products/sidelamp3img3.png",
+    "Assets/products/sidelamp3img4.png",
+    "Assets/products/coming-soon.png"
   ],
 
   4: [
-    "Assets/sidelamp4img1.png",
-    "Assets/sidelamp4img2.png",
-    "Assets/sidelamp4img3.png",
-    "Assets/sidelamp4img4.png",
-    "Assets/products/earthlight-detail.jpg"
+    "Assets/products/sidelamp4img1.png",
+    "Assets/products/sidelamp4img2.png",
+    "Assets/products/sidelamp4img3.png",
+    "Assets/products/sidelamp4img4.png",
+    "Assets/products/coming-soon.png"
   ],
 
   5: [
-    "Assets/sidelamp5img1.png",
-    "Assets/sidelamp5img2.png",
-    "Assets/sidelamp5img3.png",
-    "Assets/sidelamp5img4.png",
-    "Assets/products/woodland-glow-detail.jpg"
+    "Assets/products/sidelamp5img1.png",
+    "Assets/products/sidelamp5img2.png",
+    "Assets/products/sidelamp5img3.png",
+    "Assets/products/sidelamp5img4.png",
+    "Assets/products/sidelamp5img5.png"
   ],
 
   /* ---------------- SIDE LAMPS 6-10 ---------------- */
 
   16: [
-    "Assets/products/golden-branch-main.jpg",
-    "Assets/products/golden-branch-lifestyle.jpg",
-    "Assets/products/golden-branch-side.jpg",
-    "Assets/products/golden-branch-detail.jpg",
-    "Assets/products/golden-branch-closeup.jpg"
+    "Assets/products/sidelamp6img1.png",
+    "Assets/products/sidelamp6img2.png",
+    "Assets/products/sidelamp6img3.png",
+    "Assets/products/sidelamp6img4.png",
+    "Assets/products/coming-soon.png"
   ],
 
   17: [
-    "Assets/products/root-light-main.jpg",
-    "Assets/products/root-light-lifestyle.jpg",
-    "Assets/products/root-light-side.jpg",
-    "Assets/products/root-light-detail.jpg",
-    "Assets/products/root-light-closeup.jpg"
+    "Assets/products/sidelamp7img1.png",
+    "Assets/products/sidelamp7img2.png",
+    "Assets/products/sidelamp7img3.png",
+    "Assets/products/sidelamp7img4.png",
+    "Assets/products/sidelamp7img5.png"
   ],
 
   18: [
-    "Assets/products/nature-beam-main.jpg",
-    "Assets/products/nature-beam-lifestyle.jpg",
-    "Assets/products/nature-beam-side.jpg",
-    "Assets/products/nature-beam-detail.jpg",
-    "Assets/products/nature-beam-closeup.jpg"
+    "Assets/products/sidelamp8img1.png",
+    "Assets/products/sidelamp8img2.png",
+    "Assets/products/sidelamp8img3.png",
+    "Assets/products/sidelamp8img4.png",
+    "Assets/products/sidelamp8img5.png"
   ],
 
   19: [
-    "Assets/products/amber-forest-main.jpg",
-    "Assets/products/amber-forest-lifestyle.jpg",
-    "Assets/products/amber-forest-side.jpg",
-    "Assets/products/amber-forest-detail.jpg",
-    "Assets/products/amber-forest-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   20: [
-    "Assets/products/wood-glow-main.jpg",
-    "Assets/products/wood-glow-lifestyle.jpg",
-    "Assets/products/wood-glow-side.jpg",
-    "Assets/products/wood-glow-detail.jpg",
-    "Assets/products/wood-glow-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   /* ---------------- WALL ART 1-5 ---------------- */
 
   6: [
-    "Assets/wallart1img1.png",
-    "Assets/wallart1img2.png",
-    "Assets/wallart1img3.png",
-    "Assets/wallart1img4.png",
-    "Assets/products/earth-form-detail.jpg"
+    "Assets/products/wallart1img1.png",
+    "Assets/products/wallart1img2.png",
+    "Assets/products/wallart1img3.png",
+    "Assets/products/wallart1img4.png",
+    "Assets/products/coming-soon.png"
   ],
 
   7: [
-    "Assets/wallart2img1.png",
-    "Assets/wallart2img2.png",
-    "Assets/wallart2img3.png",
-    "Assets/wallart2img4.png",
-    "Assets/products/root-canvas-detail.jpg"
+    "Assets/products/wallart2img1.png",
+    "Assets/products/wallart2img2.png",
+    "Assets/products/wallart2img3.png",
+    "Assets/products/wallart2img4.png",
+    "Assets/products/coming-soon.png"
   ],
 
   8: [
-    "Assets/wallart3img1.png",
-    "Assets/wallart3img2.png",
-    "Assets/wallart3img3.png",
-    "Assets/wallart3img4.png",
-    "Assets/products/wild-grain-detail.jpg"
+    "Assets/products/wallart3img1.png",
+    "Assets/products/wallart3img2.png",
+    "Assets/products/wallart3img3.png",
+    "Assets/products/wallart3img4.png",
+    "Assets/products/coming-soon.png"
   ],
 
   9: [
-    "Assets/wallart4img1.png",
-    "Assets/wallart4img2.png",
-    "Assets/wallart4img3.png",
-    "Assets/wallart4img4.png",
-    "Assets/products/nature-trace-detail.jpg"
+    "Assets/products/wallart4img1.png",
+    "Assets/products/wallart4img2.png",
+    "Assets/products/wallart4img3.png",
+    "Assets/products/wallart4img4.png",
+    "Assets/products/coming-soon.png"
   ],
 
   10: [
-    "Assets/wallart5img1.png",
-    "Assets/wallart5img2.png",
-    "Assets/wallart5img3.png",
-    "Assets/wallart5img4.png",
-    "Assets/products/forest-imprint-detail.jpg"
+    "Assets/products/wallart5img1.png",
+    "Assets/products/wallart5img2.png",
+    "Assets/products/wallart5img3.png",
+    "Assets/products/wallart5img4.png",
+    "Assets/products/coming-soon.png"
   ],
 
   /* ---------------- WALL ART 6-10 ---------------- */
 
   21: [
-    "Assets/products/wooden-rhythm-main.jpg",
-    "Assets/products/wooden-rhythm-lifestyle.jpg",
-    "Assets/products/wooden-rhythm-side.jpg",
-    "Assets/products/wooden-rhythm-detail.jpg",
-    "Assets/products/wooden-rhythm-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   22: [
-    "Assets/products/nature-lines-main.jpg",
-    "Assets/products/nature-lines-lifestyle.jpg",
-    "Assets/products/nature-lines-side.jpg",
-    "Assets/products/nature-lines-detail.jpg",
-    "Assets/products/nature-lines-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   23: [
-    "Assets/products/forest-pattern-main.jpg",
-    "Assets/products/forest-pattern-lifestyle.jpg",
-    "Assets/products/forest-pattern-side.jpg",
-    "Assets/products/forest-pattern-detail.jpg",
-    "Assets/products/forest-pattern-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   24: [
-    "Assets/products/earth-sculpture-main.jpg",
-    "Assets/products/earth-sculpture-lifestyle.jpg",
-    "Assets/products/earth-sculpture-side.jpg",
-    "Assets/products/earth-sculpture-detail.jpg",
-    "Assets/products/earth-sculpture-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   25: [
-    "Assets/products/timber-story-main.jpg",
-    "Assets/products/timber-story-lifestyle.jpg",
-    "Assets/products/timber-story-side.jpg",
-    "Assets/products/timber-story-detail.jpg",
-    "Assets/products/timber-story-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   /* ---------------- TABLES 1-5 ---------------- */
 
   11: [
-    "Assets/table1img1.png",
-    "Assets/table1img2.png",
-    "Assets/table1img3.png",
-    "Assets/table1img4.png",
-    "Assets/table1img5.png"
+    "Assets/products/table1img1.png",
+    "Assets/products/table1img2.png",
+    "Assets/products/table1img3.png",
+    "Assets/products/table1img4.png",
+    "Assets/products/table1img5.png"
   ],
 
   12: [
-    "Assets/table2img1.png",
-    "Assets/table2img2.png",
-    "Assets/table2img3.png",
-    "Assets/table2img4.png",
-    "Assets/products/terra-table-detail.jpg"
+    "Assets/products/table2img1.png",
+    "Assets/products/table2img2.png",
+    "Assets/products/table2img3.png",
+    "Assets/products/table2img4.png",
+    "Assets/products/table2img5.png"
   ],
 
   13: [
-    "Assets/products/timber-nest-main.jpg",
-    "Assets/products/timber-nest-lifestyle.jpg",
-    "Assets/products/timber-nest-side.jpg",
-    "Assets/products/timber-nest-detail.jpg",
-    "Assets/products/timber-nest-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   14: [
-    "Assets/products/forest-edge-main.jpg",
-    "Assets/products/forest-edge-lifestyle.jpg",
-    "Assets/products/forest-edge-side.jpg",
-    "Assets/products/forest-edge-detail.jpg",
-    "Assets/products/forest-edge-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   15: [
-    "Assets/products/earthline-table-main.jpg",
-    "Assets/products/earthline-table-lifestyle.jpg",
-    "Assets/products/earthline-table-side.jpg",
-    "Assets/products/earthline-table-detail.jpg",
-    "Assets/products/earthline-table-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   /* ---------------- TABLES 6-10 ---------------- */
 
   26: [
-    "Assets/products/branch-table-main.jpg",
-    "Assets/products/branch-table-lifestyle.jpg",
-    "Assets/products/branch-table-side.jpg",
-    "Assets/products/branch-table-detail.jpg",
-    "Assets/products/branch-table-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   27: [
-    "Assets/products/golden-timber-main.jpg",
-    "Assets/products/golden-timber-lifestyle.jpg",
-    "Assets/products/golden-timber-side.jpg",
-    "Assets/products/golden-timber-detail.jpg",
-    "Assets/products/golden-timber-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   28: [
-    "Assets/products/organic-nest-main.jpg",
-    "Assets/products/organic-nest-lifestyle.jpg",
-    "Assets/products/organic-nest-side.jpg",
-    "Assets/products/organic-nest-detail.jpg",
-    "Assets/products/organic-nest-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
+  ],
+
+  28: [
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   29: [
-    "Assets/products/root-harmony-main.jpg",
-    "Assets/products/root-harmony-lifestyle.jpg",
-    "Assets/products/root-harmony-side.jpg",
-    "Assets/products/root-harmony-detail.jpg",
-    "Assets/products/root-harmony-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   30: [
-    "Assets/products/terra-roots-main.jpg",
-    "Assets/products/terra-roots-lifestyle.jpg",
-    "Assets/products/terra-roots-side.jpg",
-    "Assets/products/terra-roots-detail.jpg",
-    "Assets/products/terra-roots-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   /* ---------------- MIDO CREATIVITY 1-5 ---------------- */
 
   31: [
-    "Assets/products/anatomy-art-main.jpg",
-    "Assets/products/anatomy-art-lifestyle.jpg",
-    "Assets/products/anatomy-art-side.jpg",
-    "Assets/products/anatomy-art-detail.jpg",
-    "Assets/products/anatomy-art-closeup.jpg"
+    "Assets/products/medo1img1.png",
+    "Assets/products/medo1img2.png",
+    "Assets/products/medo1img3.png",
+    "Assets/products/medo1img4.png",
+    "Assets/products/medo1img5.png"
   ],
 
   32: [
-    "Assets/products/medical-forms-main.jpg",
-    "Assets/products/medical-forms-lifestyle.jpg",
-    "Assets/products/medical-forms-side.jpg",
-    "Assets/products/medical-forms-detail.jpg",
-    "Assets/products/medical-forms-closeup.jpg"
+    "Assets/products/medo2img1.png",
+    "Assets/products/medo2img2.png",
+    "Assets/products/medo2img3.png",
+    "Assets/products/medo2img4.png",
+    "Assets/products/medo2img5.png"
   ],
 
   33: [
-    "Assets/products/life-structure-main.jpg",
-    "Assets/products/life-structure-lifestyle.jpg",
-    "Assets/products/life-structure-side.jpg",
-    "Assets/products/life-structure-detail.jpg",
-    "Assets/products/life-structure-closeup.jpg"
+    "Assets/products/medo3img1.png",
+    "Assets/products/medo3img2.png",
+    "Assets/products/medo3img3.png",
+    "Assets/products/medo3img4.png",
+    "Assets/products/medo3img5.png"
   ],
 
   34: [
-    "Assets/products/human-canvas-main.jpg",
-    "Assets/products/human-canvas-lifestyle.jpg",
-    "Assets/products/human-canvas-side.jpg",
-    "Assets/products/human-canvas-detail.jpg",
-    "Assets/products/human-canvas-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   35: [
-    "Assets/products/anatomy-study-main.jpg",
-    "Assets/products/anatomy-study-lifestyle.jpg",
-    "Assets/products/anatomy-study-side.jpg",
-    "Assets/products/anatomy-study-detail.jpg",
-    "Assets/products/anatomy-study-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   /* ---------------- MIDO CREATIVITY 6-10 ---------------- */
 
   36: [
-    "Assets/products/creative-cells-main.jpg",
-    "Assets/products/creative-cells-lifestyle.jpg",
-    "Assets/products/creative-cells-side.jpg",
-    "Assets/products/creative-cells-detail.jpg",
-    "Assets/products/creative-cells-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   37: [
-    "Assets/products/vital-forms-main.jpg",
-    "Assets/products/vital-forms-lifestyle.jpg",
-    "Assets/products/vital-forms-side.jpg",
-    "Assets/products/vital-forms-detail.jpg",
-    "Assets/products/vital-forms-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   38: [
-    "Assets/products/anatomical-vision-main.jpg",
-    "Assets/products/anatomical-vision-lifestyle.jpg",
-    "Assets/products/anatomical-vision-side.jpg",
-    "Assets/products/anatomical-vision-detail.jpg",
-    "Assets/products/anatomical-vision-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   39: [
-    "Assets/products/bio-art-main.jpg",
-    "Assets/products/bio-art-lifestyle.jpg",
-    "Assets/products/bio-art-side.jpg",
-    "Assets/products/bio-art-detail.jpg",
-    "Assets/products/bio-art-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ],
 
   40: [
-    "Assets/products/mido-signature-main.jpg",
-    "Assets/products/mido-signature-lifestyle.jpg",
-    "Assets/products/mido-signature-side.jpg",
-    "Assets/products/mido-signature-detail.jpg",
-    "Assets/products/mido-signature-closeup.jpg"
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png",
+    "Assets/products/coming-soon.png"
   ]
 
 };
