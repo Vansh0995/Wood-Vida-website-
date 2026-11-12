@@ -430,11 +430,11 @@ window.WV_PRODUCT_IMAGES = {
   ],
 
   34: [
-    "Assets/products/coming-soon.png",
-    "Assets/products/coming-soon.png",
-    "Assets/products/coming-soon.png",
-    "Assets/products/coming-soon.png",
-    "Assets/products/coming-soon.png"
+    "Assets/products/medo4img1.png",
+    "Assets/products/medo4img2.png",
+    "Assets/products/medo4img3.png",
+    "Assets/products/medo4img4.png",
+    "Assets/products/medo4img5.png"
   ],
 
   35: [
