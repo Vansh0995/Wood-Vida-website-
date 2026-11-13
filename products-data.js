@@ -69,10 +69,10 @@ function wvPlaceholderImage(label) {
 ========================================================== */
 
 const samplePrices = {
-  1: 22000, 2: 8000, 3: 7000, 4: 6500, 5: 35000,
-  6: 3200, 7: 18000, 8: 2900, 9: 3500, 10: 3200,
+  1: 22000, 2: 8000, 3: 7000, 4: 6500, 5: 35000, 
+  16: 3200, 17: 18000, 18: 2900, 19: 3500, 20: 3200,
   11: 32000, 12: 37000, 13: 9500, 14: 14500, 15: 13500,
-  6: 8000, 7: 6000, 8: 8000, 9: 5100, 10: 5900,
+  6: 8000, 7: 18000, 8: 8000, 9: 5100, 10: 5900,
   21: 3600, 22: 4100, 23: 3300, 24: 3900, 25: 4500,
   26: 10500, 27: 32000, 28: 9800, 29: 15500, 30: 14000,
   31: 2500, 32: 3200, 33: 3800, 34: 3200, 35: 2900,
@@ -187,7 +187,7 @@ window.WV_PRODUCT_IMAGES = {
 
   /* ---------------- SIDE LAMPS 6-10 ---------------- */
 
-  6: [
+  16: [
     "Assets/products/sidelamp6img1.png",
     "Assets/products/sidelamp6img2.png",
     "Assets/products/sidelamp6img3.png",
@@ -195,7 +195,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/products/coming-soon.png"
   ],
 
-  7: [
+  17: [
     "Assets/products/sidelamp7img1.png",
     "Assets/products/sidelamp7img2.png",
     "Assets/products/sidelamp7img3.png",
@@ -203,7 +203,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/products/sidelamp7img5.png"
   ],
 
-  8: [
+  18: [
     "Assets/products/sidelamp8img1.png",
     "Assets/products/sidelamp8img2.png",
     "Assets/products/sidelamp8img3.png",
@@ -211,7 +211,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/products/sidelamp8img5.png"
   ],
 
-  9: [
+  19: [
     "Assets/products/coming-soon.png",
     "Assets/products/coming-soon.png",
     "Assets/products/coming-soon.png",
@@ -219,7 +219,7 @@ window.WV_PRODUCT_IMAGES = {
     "Assets/products/coming-soon.png"
   ],
 
-  10: [
+  20: [
     "Assets/products/coming-soon.png",
     "Assets/products/coming-soon.png",
     "Assets/products/coming-soon.png",
