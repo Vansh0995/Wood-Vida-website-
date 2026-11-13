@@ -73,9 +73,9 @@ const samplePrices = {
   16: 9000, 17: 6000, 18: 8000, 19: 3500, 20: 3200,
   11: 32000, 12: 37000, 13: 9500, 14: 14500, 15: 13500,
   6: 8000, 7: 18000, 8: 8000, 9: 5100, 10: 5900,
-  21: 3600, 22: 4100, 23: 3300, 24: 3900, 25: 4500,
+  21: 8000, 22: 4100, 23: 3300, 24: 3900, 25: 4500,
   26: 10500, 27: 32000, 28: 9800, 29: 15500, 30: 14000,
-  31: 2500, 32: 3200, 33: 3800, 34: 3200, 35: 2900,
+  31: 2500, 32: 3200, 33: 3800, 34: 3200, 35: 3000,
   36: 3500, 37: 4500, 38: 5200, 39: 3900, 40: 4800
 };
 
@@ -272,11 +272,11 @@ window.WV_PRODUCT_IMAGES = {
   /* ---------------- WALL ART 6-10 ---------------- */
 
   21: [
-    "Assets/products/coming-soon.png",
-    "Assets/products/coming-soon.png",
-    "Assets/products/coming-soon.png",
-    "Assets/products/coming-soon.png",
-    "Assets/products/coming-soon.png"
+    "Assets/products/wallart6img1.png",
+    "Assets/products/wallart6img2.png",
+    "Assets/products/wallart6img3.png",
+    "Assets/products/wallart6img4.png",
+    "Assets/products/wallart6img5.png"
   ],
 
   22: [
@@ -438,11 +438,11 @@ window.WV_PRODUCT_IMAGES = {
   ],
 
   35: [
-    "Assets/products/coming-soon.png",
-    "Assets/products/coming-soon.png",
-    "Assets/products/coming-soon.png",
-    "Assets/products/coming-soon.png",
-    "Assets/products/coming-soon.png"
+    "Assets/products/medo5img1.png",
+    "Assets/products/medo5img2.png",
+    "Assets/products/medo5img3.png",
+    "Assets/products/medo5img4.png",
+    "Assets/products/medo5img5.png"
   ],
 
   /* ---------------- MIDO CREATIVITY 6-10 ---------------- */
